@@ -2,6 +2,48 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1AC42E">
+    android:background="#1AC42E"
+    android:orientation="vertical">
 
+    <Button
+        android:layout_width="350dp"
+        android:layout_height="80dp"
+        android:text="New Button"
+        android:id="@+id/button25"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="350dp"
+        android:layout_height="80dp"
+        android:text="New Button"
+        android:id="@+id/button26"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="350dp"
+        android:layout_height="80dp"
+        android:text="New Button"
+        android:id="@+id/button27"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="350dp"
+        android:layout_height="80dp"
+        android:text="New Button"
+        android:id="@+id/button28"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="350dp"
+        android:layout_height="80dp"
+        android:text="New Button"
+        android:id="@+id/button29"
+        android:layout_gravity="center" />
+
+    <Button
+        android:layout_width="350dp"
+        android:layout_height="80dp"
+        android:text="New Button"
+        android:id="@+id/button30"
+        android:layout_gravity="center_horizontal" />
 </LinearLayout>
