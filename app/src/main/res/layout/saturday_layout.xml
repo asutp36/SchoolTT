@@ -2,48 +2,54 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1AC1C4"
+    android:background="#338E90"
     android:orientation="vertical">
 
     <Button
-        android:layout_width="350dp"
-        android:layout_height="80dp"
-        android:text="New Button"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:text="Физкультура"
         android:id="@+id/button31"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="12dp" />
 
     <Button
-        android:layout_width="350dp"
-        android:layout_height="80dp"
-        android:text="New Button"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:text="Физика"
         android:id="@+id/button32"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="12dp" />
 
     <Button
-        android:layout_width="350dp"
-        android:layout_height="80dp"
-        android:text="New Button"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:text="История"
         android:id="@+id/button33"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="12dp" />
 
     <Button
-        android:layout_width="350dp"
-        android:layout_height="80dp"
-        android:text="New Button"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:text="Математика"
         android:id="@+id/button34"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="12dp" />
 
     <Button
-        android:layout_width="350dp"
-        android:layout_height="80dp"
-        android:text="New Button"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:text="География"
         android:id="@+id/button35"
+        android:layout_marginBottom="12dp"
         android:layout_gravity="center_horizontal" />
 
     <Button
-        android:layout_width="350dp"
-        android:layout_height="80dp"
-        android:text="New Button"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:text="Биология"
         android:id="@+id/button36"
         android:layout_gravity="center_horizontal" />
 </LinearLayout>

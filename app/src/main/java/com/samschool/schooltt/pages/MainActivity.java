@@ -64,17 +64,17 @@ public class MainActivity extends FragmentActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "Monday";
+                    return "Понедельник";
                 case 1:
-                    return "Tuesday";
+                    return "Вторник";
                 case 2:
-                    return "Wednesday";
+                    return "Среда";
                 case 3:
-                    return "Thursday";
+                    return "Четверг";
                 case 4:
-                    return "Friday";
+                    return "Пятница";
                 case 5:
-                    return "Saturday";
+                    return "Суббота";
             }
             return "Title " + position;
         }

@@ -6,44 +6,51 @@
     android:orientation="vertical">
 
     <Button
-        android:layout_width="350dp"
-        android:layout_height="80dp"
-        android:text="New Button"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:text="История"
         android:id="@+id/button7"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="8dp" />
 
     <Button
-        android:layout_width="350dp"
-        android:layout_height="80dp"
-        android:text="New Button"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:text="Русский язык"
         android:id="@+id/button8"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="12dp" />
 
     <Button
-        android:layout_width="350dp"
-        android:layout_height="80dp"
-        android:text="New Button"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:text="Искусство"
         android:id="@+id/button9"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="12dp" />
 
     <Button
-        android:layout_width="350dp"
-        android:layout_height="80dp"
-        android:text="New Button"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:text="Литература"
         android:id="@+id/button10"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="12dp" />
 
     <Button
-        android:layout_width="350dp"
-        android:layout_height="80dp"
-        android:text="New Button"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:text="ИКТ"
         android:id="@+id/button11"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="12dp" />
 
     <Button
-        android:layout_width="350dp"
-        android:layout_height="80dp"
-        android:text="New Button"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:text="Английский язык"
         android:id="@+id/button12"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="12dp" />
 </LinearLayout>
