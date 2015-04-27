@@ -14,7 +14,7 @@ import com.samschool.schooltt.pages.R;
 public class MainActivity extends FragmentActivity {
 
     static final String TAG = "myLogs";
-    static final int PAGE_COUNT = 10;
+    static final int PAGE_COUNT = 6;
 
     ViewPager pager;
     PagerAdapter pagerAdapter;
