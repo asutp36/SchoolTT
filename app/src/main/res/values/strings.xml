@@ -7,5 +7,5 @@
     <string name="read_file">Прочитать файл</string>
     <string name="write_file">Записать файл</string>
 
-    <string name="hello_world">Hello world!</string>
+    <string name="edit_actionBar">Изменить расписание</string>
 </resources>

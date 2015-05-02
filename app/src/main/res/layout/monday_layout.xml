@@ -3,76 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F2550D"
+    android:background="#8D0A1D"
     android:weightSum="1"
     android:orientation="vertical">
 
-    <Button
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:text="История"
-        android:id="@+id/button2"
-        android:layout_alignParentTop="true"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="12dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:clickable="true" />
-
-    <Button
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:text="Химия"
-        android:id="@+id/button"
-        android:layout_marginBottom="12dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:clickable="true" />
-
-    <Button
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:text="География"
-        android:id="@+id/button3"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="12dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:clickable="true" />
-
-    <Button
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:text="Обществознание"
-        android:id="@+id/button4"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="12dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:clickable="true" />
-
-    <Button
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:text="ИКТ"
-        android:id="@+id/button5"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="12dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:clickable="true" />
-
-    <Button
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:text="Физкультура"
-        android:id="@+id/button6"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="50dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:clickable="true" />
-
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/android:list"
+        android:layout_gravity="center_horizontal" />
 </LinearLayout>
