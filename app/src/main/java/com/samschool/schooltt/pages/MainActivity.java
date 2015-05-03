@@ -16,8 +16,8 @@ import com.samschool.schooltt.pages.R;
 
 public class MainActivity extends FragmentActivity {
 
-    static final String TAG = "myLogs";
-    static final int PAGE_COUNT = 6;
+    // Само расписание
+    TimeTable mainTT = null;
 
     ViewPager pager;
     PagerAdapter pagerAdapter;
@@ -25,7 +25,10 @@ public class MainActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
+
+        InitTimeTable();
 
         pager = (ViewPager) findViewById(R.id.pager);
         pagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager());
@@ -35,6 +38,7 @@ public class MainActivity extends FragmentActivity {
 
             @Override
             public void onPageSelected(int position) {
+                pager.getChildAt(position);
             }
 
             @Override
@@ -56,30 +60,43 @@ public class MainActivity extends FragmentActivity {
 
         @Override
         public Fragment getItem(int position) {
-            return PageFragment.newInstance(position);
+            TTDay day = null;
+            if(position < mainTT.days.size())
+                day = mainTT.days.get(position);
+            
+            PageFragment view = (PageFragment)pager.getChildAt(position);
+            if( == null)
+                pager.se
+
+            return PageFragment.newInstance(position, day);
         }
 
         @Override
         public int getCount(){
-            return PAGE_COUNT;
+            return mainTT.days.size();
         }
+
         @Override
         public CharSequence getPageTitle(int position) {
-            switch (position) {
-                case 0:
-                    return "Понедельник";
-                case 1:
-                    return "Вторник";
-                case 2:
-                    return "Среда";
-                case 3:
-                    return "Четверг";
-                case 4:
-                    return "Пятница";
-                case 5:
-                    return "Суббота";
-            }
-            return "Title " + position;
+            if(position < mainTT.days.size())
+                return mainTT.days.get(position)._name;
+            else
+                return "Не найден день с позицией " + position;
+//            switch (position) {
+//                case 0:
+//                    return mainTT.days.get(position);
+//                case 1:
+//                    return "Вторник";
+//                case 2:
+//                    return "Среда";
+//                case 3:
+//                    return "Четверг";
+//               case 4:
+//                    return "Пятница";
+//                case 5:
+//                    return "Суббота";
+//            }
+//            return "Title " + position;
         }
     }
 
@@ -89,4 +106,28 @@ public class MainActivity extends FragmentActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    // Заполнение ранее сохранённого расписания
+    private void InitTimeTable()
+    {
+        mainTT = new TimeTable();
+
+        TTDay mnd = new TTDay("Понедельник");
+        mnd.lessons.add(new TTLesson("10:00", "11:00", "Математика",""));
+        mnd.lessons.add(new TTLesson("11:00", "12:00", "Физика",""));
+        mnd.lessons.add(new TTLesson("12:00", "13:00", "Русский",""));
+
+        TTDay tue = new TTDay("Втор-ник");
+        tue.lessons.add(new TTLesson("15:00", "16:00", "Литература",""));
+        tue.lessons.add(new TTLesson("16:00", "17:00", "Биология",""));
+        tue.lessons.add(new TTLesson("17:00", "18:00", "История",""));
+
+        TTDay wed = new TTDay("Середа");
+        wed.lessons.add(new TTLesson("11:00", "12:00", "Английский",""));
+        wed.lessons.add(new TTLesson("12:00", "13:00", "Математика",""));
+        wed.lessons.add(new TTLesson("13:00", "14:00", "Физкультура",""));
+
+        mainTT.days.add(mnd);
+        mainTT.days.add(tue);
+        mainTT.days.add(wed);
+    }
 }

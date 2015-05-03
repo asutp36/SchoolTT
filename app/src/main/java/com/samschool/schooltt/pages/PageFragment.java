@@ -19,11 +19,17 @@ public class PageFragment extends ListFragment {
 
     int pageNumber;
 
-    public static PageFragment newInstance(int page) {
+    // Отображаемый день
+ //   TTDay _currentDay;
+
+    public static PageFragment newInstance(int page, TTDay day) {
         PageFragment pageFragment = new PageFragment();
         Bundle arguments = new Bundle();
         arguments.putInt(ARGUMENT_PAGE_NUMBER, page);
         pageFragment.setArguments(arguments);
+
+        //_currentDay = day;
+
         return pageFragment;
     }
 
@@ -38,36 +44,40 @@ public class PageFragment extends ListFragment {
                              Bundle savedInstanceState) {
         View view = null;
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_list_item_1, testData);
+        view = inflater.inflate(R.layout.monday_layout, null);
 
         switch (pageNumber){
             case 0:
-                view = inflater.inflate(R.layout.monday_layout, null);
-                setListAdapter(adapter);
+//                view = inflater.inflate(R.layout.monday_layout, null);
+//                setListAdapter(adapter);
                 break;
             case 1:
-                view = inflater.inflate(R.layout.tuesday_layout, null);
-                setListAdapter(adapter);
+//                view = inflater.inflate(R.layout.tuesday_layout, null);
+//                setListAdapter(adapter);
                 break;
             case 2:
-                view = inflater.inflate(R.layout.wednesday_layout, null);
-                setListAdapter(adapter);
+//                view = inflater.inflate(R.layout.wednesday_layout, null);
+//                setListAdapter(adapter);
                 break;
             case 3:
-                view = inflater.inflate(R.layout.thursday_layout, null);
-                setListAdapter(adapter);
+//                view = inflater.inflate(R.layout.thursday_layout, null);
+//                setListAdapter(adapter);
                 break;
             case 4:
-                view = inflater.inflate(R.layout.friday_layout, null);
-                setListAdapter(adapter);
+//                view = inflater.inflate(R.layout.friday_layout, null);
+//                setListAdapter(adapter);
                 break;
             case 5:
-                view = inflater.inflate(R.layout.saturday_layout, null);
-                setListAdapter(adapter);
+//                view = inflater.inflate(R.layout.saturday_layout, null);
+//                setListAdapter(adapter);
                 break;
-
         }
+
+        // Заполнить уроки на день
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_list_item_1, testData);
+
+        setListAdapter(adapter);
 
         return view;
     }
