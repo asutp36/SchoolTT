@@ -13,6 +13,7 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
@@ -82,6 +83,13 @@ public class MainActivity extends FragmentActivity {
 
         switch(id) {
             case R.id.edit_day:
+                if(mainTT.days.size() >= 6) {
+                    Toast.makeText(getApplicationContext(), "Нельзя добавить больше 6 дней",
+                            Toast.LENGTH_SHORT).show();
+
+                    return true;
+                }
+
                 // открыть activity редактирования дня
                 intent = new Intent(this, EditActivity.class);
                 intent.putExtra("TimeTable", mainTT);
