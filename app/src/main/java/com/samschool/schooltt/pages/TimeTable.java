@@ -9,6 +9,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.Serializable;
+import java.text.Collator;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 
 // Рассписание на неделю
@@ -31,6 +34,13 @@ public class TimeTable implements Serializable {
     {
         TTDay day = days.get(dayPosition);
         day.lessons.add(lesson);
+
+        Collections.sort(day.lessons, new Comparator<TTLesson>() {
+            @Override
+            public int compare(TTLesson o1, TTLesson o2) {
+                return Collator.getInstance().compare(o1._startTime, o2._startTime);
+            }
+        });
 
         SaveTT2File(context);
     }
