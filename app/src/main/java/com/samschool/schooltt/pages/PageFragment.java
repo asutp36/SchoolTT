@@ -5,9 +5,6 @@ import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-
-import com.samschool.schooltt.pages.R;
 
 public class PageFragment extends ListFragment {
 
@@ -45,7 +42,7 @@ public class PageFragment extends ListFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.monday_layout, null);
+        View view = inflater.inflate(R.layout.day_layout, null);
 
         // Заполнить строки уроков на день
         String lessons[] = new String[_currentDay.lessons.size()];
