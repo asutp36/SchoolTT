@@ -35,6 +35,7 @@ public class PageFragment extends ListFragment {
         super.onCreate(savedInstanceState);
         pageNumber = getArguments().getInt(ARGUMENT_PAGE_NUMBER);
 
+        // Помечает фрагмент как неудаляемый
         setRetainInstance(true);
     }
 

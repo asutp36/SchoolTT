@@ -66,31 +66,31 @@ public class MainActivity extends FragmentActivity {
     // Заполнение ранее сохранённого расписания
     private void InitTimeTable()
     {
-        mainTT = new TimeTable();
+//        mainTT = new TimeTable();
+//
+//        TTDay mnd = new TTDay("Понедельник");
+//        mnd.lessons.add(new TTLesson("10:00", "11:00", "Математика","1"));
+//        mnd.lessons.add(new TTLesson("11:00", "12:00", "Физика","2"));
+//        mnd.lessons.add(new TTLesson("12:00", "13:00", "Русский","3"));
+//
+//        TTDay tue = new TTDay("Вторник");
+//        tue.lessons.add(new TTLesson("15:00", "16:00", "Литература","Учить стих"));
+//        tue.lessons.add(new TTLesson("16:00", "17:00", "Биология","стр. 53 - 55"));
+//        tue.lessons.add(new TTLesson("17:00", "18:00", "История","Была контрольная"));
+//
+//        TTDay wed = new TTDay("Среда");
+//        wed.lessons.add(new TTLesson("11:00", "12:00", "Английский","7"));
+//        wed.lessons.add(new TTLesson("12:00", "13:00", "Математика","8"));
+//        wed.lessons.add(new TTLesson("13:00", "14:00", "Физкультура","9"));
+//
+//        mainTT.days.add(mnd);
+//        mainTT.days.add(tue);
+//        mainTT.days.add(wed);
+//
+//        // сериализовать расписание
+//        SaveTT2File(mainTT);
 
-        TTDay mnd = new TTDay("Понедельник");
-        mnd.lessons.add(new TTLesson("10:00", "11:00", "Математика","1"));
-        mnd.lessons.add(new TTLesson("11:00", "12:00", "Физика","2"));
-        mnd.lessons.add(new TTLesson("12:00", "13:00", "Русский","3"));
-
-        TTDay tue = new TTDay("Вторник");
-        tue.lessons.add(new TTLesson("15:00", "16:00", "Литература","Учить стих"));
-        tue.lessons.add(new TTLesson("16:00", "17:00", "Биология","стр. 53 - 55"));
-        tue.lessons.add(new TTLesson("17:00", "18:00", "История","Была контрольная"));
-
-        TTDay wed = new TTDay("Среда");
-        wed.lessons.add(new TTLesson("11:00", "12:00", "Английский","7"));
-        wed.lessons.add(new TTLesson("12:00", "13:00", "Математика","8"));
-        wed.lessons.add(new TTLesson("13:00", "14:00", "Физкультура","9"));
-
-        mainTT.days.add(mnd);
-        mainTT.days.add(tue);
-        mainTT.days.add(wed);
-
-        // сериализовать расписание
-        SaveTT2File(mainTT);
-
-        TimeTable tt = RestoreTTFromFile("tt.xml");
+        mainTT = RestoreTTFromFile("tt.xml");
     }
 
     // Сохранение расписания в файл xml
