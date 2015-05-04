@@ -48,9 +48,9 @@ public class PageFragment extends ListFragment {
 
 
         TTDay tue = new TTDay("Втор-ник");
-        tue.lessons.add(new TTLesson("15:00", "16:00", "Литература",""));
-        tue.lessons.add(new TTLesson("16:00", "17:00", "Биология",""));
-        tue.lessons.add(new TTLesson("17:00", "18:00", "История",""));
+        tue.lessons.add(new TTLesson("15:00", "16:00", "Литература2","Учить стих"));
+        tue.lessons.add(new TTLesson("16:00", "17:00", "Биология","стр. 53 - 55"));
+        tue.lessons.add(new TTLesson("17:00", "18:00", "История","Была контрольная"));
 
         _currentDay = tue;
 
@@ -86,14 +86,16 @@ public class PageFragment extends ListFragment {
 
         // Заполнить строки уроков на день
         String lessons[] = new String[_currentDay.lessons.size()];
+        String time[] = new String[_currentDay.lessons.size()];
 
         for(int i = 0; i < _currentDay.lessons.size(); i++)
         {
-            lessons[i] = _currentDay.lessons.get(i)._startTime + "-" + _currentDay.lessons.get(i)._stopTime + "  " + _currentDay.lessons.get(i)._subject;
+            lessons[i] = _currentDay.lessons.get(i)._subject;
+            time[i] =  _currentDay.lessons.get(i)._startTime + "-" + _currentDay.lessons.get(i)._stopTime;
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_list_item_1, lessons);
+
+        DayTTAdapter adapter = new DayTTAdapter(container.getContext(), _currentDay.lessons);
 
         setListAdapter(adapter);
 

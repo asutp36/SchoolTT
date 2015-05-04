@@ -117,9 +117,9 @@ public class MainActivity extends FragmentActivity {
         mnd.lessons.add(new TTLesson("12:00", "13:00", "Русский",""));
 
         TTDay tue = new TTDay("Втор-ник");
-        tue.lessons.add(new TTLesson("15:00", "16:00", "Литература",""));
-        tue.lessons.add(new TTLesson("16:00", "17:00", "Биология",""));
-        tue.lessons.add(new TTLesson("17:00", "18:00", "История",""));
+        tue.lessons.add(new TTLesson("15:00", "16:00", "Литература2","Учить стих"));
+        tue.lessons.add(new TTLesson("16:00", "17:00", "Биология","стр. 53 - 55"));
+        tue.lessons.add(new TTLesson("17:00", "18:00", "История","Была контрольная"));
 
         TTDay wed = new TTDay("Середа");
         wed.lessons.add(new TTLesson("11:00", "12:00", "Английский",""));
