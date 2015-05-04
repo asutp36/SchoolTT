@@ -1,6 +1,7 @@
 package com.samschool.schooltt.pages;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -11,6 +12,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
@@ -20,8 +22,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
 public class MainActivity extends FragmentActivity {
-
-    final String FILENAME = "tt1.xml";
 
     // Само расписание
     TimeTable mainTT = null;
@@ -41,11 +41,19 @@ public class MainActivity extends FragmentActivity {
         pagerAdapter = new DayPagerAdapter(getSupportFragmentManager(), mainTT);
         pager.setAdapter(pagerAdapter);
 
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+
+        int dayPosition = 0;
+        if(bundle != null)
+            dayPosition = bundle.getInt("dayPosition", 0);
+
+        pager.setCurrentItem(dayPosition);
+
         pager.setOnPageChangeListener(new OnPageChangeListener() {
 
             @Override
             public void onPageSelected(int position) {
-//                pager.getChildAt(position);
             }
 
             @Override
@@ -64,6 +72,25 @@ public class MainActivity extends FragmentActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_main, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch(id) {
+            case R.id.edit_day:
+                // открыть activity редактирования дня
+                Intent intent = new Intent(this, EditActivity.class);
+                intent.putExtra("TimeTable", mainTT);
+                startActivity(intent);
+
+                return true;
+            case R.id.edit_lesson:
+                return  true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     // Заполнение ранее сохранённого расписания
@@ -93,41 +120,6 @@ public class MainActivity extends FragmentActivity {
 //        // сериализовать расписание
 //        SaveTT2File(mainTT);
 
-        mainTT = RestoreTTFromFile(FILENAME);
-    }
-
-    // Сохранение расписания в файл xml
-    private void SaveTT2File(TimeTable timeTable)
-    {
-        //Объект-сериализатор
-        XStream xs = new XStream();
-
-        try
-        {
-            FileOutputStream fs = openFileOutput(FILENAME, Context.MODE_PRIVATE);
-            xs.toXML(timeTable, fs);
-            fs.close();
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-    }
-
-    // Восстанавливает объект из файла
-    private TimeTable RestoreTTFromFile(String fileName)
-    {
-        XStream xs = new XStream(new DomDriver());
-        TimeTable timeTable = new TimeTable();
-
-        try {
-            FileInputStream fis = openFileInput(fileName);
-            xs.fromXML(fis, timeTable);
-
-        } catch (FileNotFoundException ex) {
-            ex.printStackTrace();
-        }
-
-        return timeTable;
+        mainTT = TimeTable.RestoreTTFromFile(this);
     }
 }

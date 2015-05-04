@@ -1,9 +1,62 @@
 package com.samschool.schooltt.pages;
 
+import android.content.Context;
+
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.Serializable;
 import java.util.LinkedList;
 
 // Рассписание на неделю
-public class TimeTable {
+public class TimeTable implements Serializable {
     // Список дней
     LinkedList<TTDay> days = new LinkedList<TTDay>();
+
+    public int AddDay(Context context, TTDay day)
+    {
+        days.add(day);
+
+        SaveTT2File(context);
+
+        return days.size() - 1;
+    }
+
+    // Сохранение расписания в файл xml
+    public void SaveTT2File(Context context)
+    {
+        //Объект-сериализатор
+        XStream xs = new XStream();
+
+        try
+        {
+            FileOutputStream fs = context.openFileOutput("tt.xml", Context.MODE_PRIVATE);
+            xs.toXML(this, fs);
+            fs.close();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    // Восстанавливает объект из файла
+    public static TimeTable RestoreTTFromFile(Context context)
+    {
+        XStream xs = new XStream(new DomDriver());
+        TimeTable timeTable = new TimeTable();
+
+        try {
+            FileInputStream fis = context.openFileInput("tt.xml");
+            xs.fromXML(fis, timeTable);
+
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        }
+
+        return timeTable;
+    }
 }

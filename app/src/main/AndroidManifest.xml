@@ -18,7 +18,7 @@
         </activity>
         <activity
             android:name="EditActivity"
-            android:label="@string/title_activity_edit" >
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="com.samschool.schooltt.intent.action.editTT" />
 
