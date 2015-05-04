@@ -1,5 +1,6 @@
 package com.samschool.schooltt.pages;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -12,6 +13,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 
 public class MainActivity extends FragmentActivity {
 
@@ -83,11 +89,42 @@ public class MainActivity extends FragmentActivity {
 
         // сериализовать расписание
         SaveTT2File(mainTT);
+
+        TimeTable tt = RestoreTTFromFile("tt.xml");
     }
 
     // Сохранение расписания в файл xml
     private void SaveTT2File(TimeTable timeTable)
     {
-        
+        //Объект-сериализатор
+        XStream xs = new XStream();
+
+        try
+        {
+            FileOutputStream fs = openFileOutput("tt.xml", Context.MODE_PRIVATE);
+            xs.toXML(timeTable, fs);
+            fs.close();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    // Восстанавливает объект из файла
+    private TimeTable RestoreTTFromFile(String fileName)
+    {
+        XStream xs = new XStream(new DomDriver());
+        TimeTable timeTable = new TimeTable();
+
+        try {
+            FileInputStream fis = openFileInput(fileName);
+            xs.fromXML(fis, timeTable);
+
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        }
+
+        return timeTable;
     }
 }
