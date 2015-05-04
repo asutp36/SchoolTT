@@ -1,4 +1,4 @@
-package com.samschool.schooltt;
+package com.samschool.schooltt.pages;
 
 import android.app.Activity;
 import android.os.Bundle;
