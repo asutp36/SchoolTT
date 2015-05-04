@@ -10,9 +10,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.widget.ListView;
-
-import com.samschool.schooltt.pages.R;
 
 public class MainActivity extends FragmentActivity {
 
@@ -31,7 +28,7 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
 
         pager = (ViewPager) findViewById(R.id.pager);
-        pagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager());
+        pagerAdapter = new DayPagerAdapter(getSupportFragmentManager(), mainTT);
         pager.setAdapter(pagerAdapter);
 
         pager.setOnPageChangeListener(new OnPageChangeListener() {
@@ -52,54 +49,6 @@ public class MainActivity extends FragmentActivity {
         });
     }
 
-    private class MyFragmentPagerAdapter extends FragmentPagerAdapter {
-
-        public MyFragmentPagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            TTDay day = null;
-            if(position < mainTT.days.size())
-                day = mainTT.days.get(position);
-            
-//            PageFragment view = (PageFragment)pager.getChildAt(position);
-//            if( == null)
-//                pager.se
-
-            return PageFragment.newInstance(position, day);
-        }
-
-        @Override
-        public int getCount(){
-            return mainTT.days.size();
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            if(position < mainTT.days.size())
-                return mainTT.days.get(position)._name;
-            else
-                return "Не найден день с позицией " + position;
-//            switch (position) {
-//                case 0:
-//                    return mainTT.days.get(position);
-//                case 1:
-//                    return "Вторник";
-//                case 2:
-//                    return "Среда";
-//                case 3:
-//                    return "Четверг";
-//               case 4:
-//                    return "Пятница";
-//                case 5:
-//                    return "Суббота";
-//            }
-//            return "Title " + position;
-        }
-    }
-
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_main, menu);
@@ -112,19 +61,19 @@ public class MainActivity extends FragmentActivity {
         mainTT = new TimeTable();
 
         TTDay mnd = new TTDay("Понедельник");
-        mnd.lessons.add(new TTLesson("10:00", "11:00", "Математика",""));
-        mnd.lessons.add(new TTLesson("11:00", "12:00", "Физика",""));
-        mnd.lessons.add(new TTLesson("12:00", "13:00", "Русский",""));
+        mnd.lessons.add(new TTLesson("10:00", "11:00", "Математика","1"));
+        mnd.lessons.add(new TTLesson("11:00", "12:00", "Физика","2"));
+        mnd.lessons.add(new TTLesson("12:00", "13:00", "Русский","3"));
 
-        TTDay tue = new TTDay("Втор-ник");
-        tue.lessons.add(new TTLesson("15:00", "16:00", "Литература2","Учить стих"));
+        TTDay tue = new TTDay("Вторник");
+        tue.lessons.add(new TTLesson("15:00", "16:00", "Литература","Учить стих"));
         tue.lessons.add(new TTLesson("16:00", "17:00", "Биология","стр. 53 - 55"));
         tue.lessons.add(new TTLesson("17:00", "18:00", "История","Была контрольная"));
 
-        TTDay wed = new TTDay("Середа");
-        wed.lessons.add(new TTLesson("11:00", "12:00", "Английский",""));
-        wed.lessons.add(new TTLesson("12:00", "13:00", "Математика",""));
-        wed.lessons.add(new TTLesson("13:00", "14:00", "Физкультура",""));
+        TTDay wed = new TTDay("Среда");
+        wed.lessons.add(new TTLesson("11:00", "12:00", "Английский","7"));
+        wed.lessons.add(new TTLesson("12:00", "13:00", "Математика","8"));
+        wed.lessons.add(new TTLesson("13:00", "14:00", "Физкультура","9"));
 
         mainTT.days.add(mnd);
         mainTT.days.add(tue);
