@@ -129,5 +129,14 @@ public class MainActivity extends FragmentActivity {
         mainTT.days.add(mnd);
         mainTT.days.add(tue);
         mainTT.days.add(wed);
+
+        // сериализовать расписание
+        SaveTT2File(mainTT);
+    }
+
+    // Сохранение расписания в файл xml
+    private void SaveTT2File(TimeTable timeTable)
+    {
+        
     }
 }
