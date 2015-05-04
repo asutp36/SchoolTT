@@ -78,15 +78,23 @@ public class MainActivity extends FragmentActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
+        Intent intent;
+
         switch(id) {
             case R.id.edit_day:
                 // открыть activity редактирования дня
-                Intent intent = new Intent(this, EditActivity.class);
+                intent = new Intent(this, EditActivity.class);
                 intent.putExtra("TimeTable", mainTT);
                 startActivity(intent);
 
                 return true;
             case R.id.edit_lesson:
+                // открыть activity редактирования урока
+                intent = new Intent(this, EditLessonActivity.class);
+                intent.putExtra("TimeTable", mainTT);
+                intent.putExtra("dayPosition", pager.getCurrentItem());
+                startActivity(intent);
+
                 return  true;
             default:
                 return super.onOptionsItemSelected(item);

@@ -16,6 +16,7 @@ public class TimeTable implements Serializable {
     // Список дней
     LinkedList<TTDay> days = new LinkedList<TTDay>();
 
+    // Добавить день
     public int AddDay(Context context, TTDay day)
     {
         days.add(day);
@@ -23,6 +24,15 @@ public class TimeTable implements Serializable {
         SaveTT2File(context);
 
         return days.size() - 1;
+    }
+
+    // Добавить урок
+    public void AddLesson(Context context, int dayPosition, TTLesson lesson)
+    {
+        TTDay day = days.get(dayPosition);
+        day.lessons.add(lesson);
+
+        SaveTT2File(context);
     }
 
     // Сохранение расписания в файл xml

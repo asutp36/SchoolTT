@@ -16,11 +16,10 @@ public class TTLesson  implements Serializable {
     // Домашнее задание
     String _homework;
 
-    public TTLesson(String startTime, String stopTime, String subject, String homework)
+    public TTLesson(String startTime, String stopTime, String subject)
     {
         _startTime = startTime;
         _stopTime = stopTime;
         _subject = subject;
-        _homework = homework;
     }
 }
