@@ -11,6 +11,8 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.Menu;
 import android.view.MenuInflater;
 
+import com.thoughtworks.xstream.XStream;
+
 public class MainActivity extends FragmentActivity {
 
     // Само расписание
