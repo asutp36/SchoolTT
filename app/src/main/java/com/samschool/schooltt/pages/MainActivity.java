@@ -11,6 +11,10 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.Menu;
 import android.view.MenuInflater;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import com.thoughtworks.xstream.XStream;
+
 public class MainActivity extends FragmentActivity {
 
     // Само расписание
@@ -56,24 +60,23 @@ public class MainActivity extends FragmentActivity {
     }
 
     // Заполнение ранее сохранённого расписания
-    private void InitTimeTable()
-    {
+    private void InitTimeTable() {
         mainTT = new TimeTable();
 
         TTDay mnd = new TTDay("Понедельник");
-        mnd.lessons.add(new TTLesson("10:00", "11:00", "Математика","1"));
-        mnd.lessons.add(new TTLesson("11:00", "12:00", "Физика","2"));
-        mnd.lessons.add(new TTLesson("12:00", "13:00", "Русский","3"));
+        mnd.lessons.add(new TTLesson("10:00", "11:00", "Математика", "1"));
+        mnd.lessons.add(new TTLesson("11:00", "12:00", "Физика", "2"));
+        mnd.lessons.add(new TTLesson("12:00", "13:00", "Русский", "3"));
 
         TTDay tue = new TTDay("Вторник");
-        tue.lessons.add(new TTLesson("15:00", "16:00", "Литература","Учить стих"));
-        tue.lessons.add(new TTLesson("16:00", "17:00", "Биология","стр. 53 - 55"));
-        tue.lessons.add(new TTLesson("17:00", "18:00", "История","Была контрольная"));
+        tue.lessons.add(new TTLesson("15:00", "16:00", "Литература", "Учить стих"));
+        tue.lessons.add(new TTLesson("16:00", "17:00", "Биология", "стр. 53 - 55"));
+        tue.lessons.add(new TTLesson("17:00", "18:00", "История", "Была контрольная"));
 
         TTDay wed = new TTDay("Среда");
-        wed.lessons.add(new TTLesson("11:00", "12:00", "Английский","7"));
-        wed.lessons.add(new TTLesson("12:00", "13:00", "Математика","8"));
-        wed.lessons.add(new TTLesson("13:00", "14:00", "Физкультура","9"));
+        wed.lessons.add(new TTLesson("11:00", "12:00", "Английский", "7"));
+        wed.lessons.add(new TTLesson("12:00", "13:00", "Математика", "8"));
+        wed.lessons.add(new TTLesson("13:00", "14:00", "Физкультура", "9"));
 
         mainTT.days.add(mnd);
         mainTT.days.add(tue);
@@ -84,8 +87,17 @@ public class MainActivity extends FragmentActivity {
     }
 
     // Сохранение расписания в файл xml
-    private void SaveTT2File(TimeTable timeTable)
-    {
-        
+    private void SaveTT2File(TimeTable timeTable) {
+        //Объект-сериализатор
+        XStream xs = new XStream();
+
+        //Write to a file in the file system
+        try {
+            FileOutputStream fs = new FileOutputStream("TT.xml");
+            xs.toXML(timeTable, fs);
+        } catch (FileNotFoundException e1) {
+            e1.printStackTrace();
+
+        }
     }
 }
