@@ -46,19 +46,20 @@ public class PageFragment extends ListFragment {
         View view = inflater.inflate(R.layout.day_layout, null);
 
         // Заполнить строки уроков на день
-        String lessons[] = new String[_currentDay.lessons.size()];
-        String time[] = new String[_currentDay.lessons.size()];
+        if(_currentDay != null) {
+            String lessons[] = new String[_currentDay.lessons.size()];
+            String time[] = new String[_currentDay.lessons.size()];
 
-        for(int i = 0; i < _currentDay.lessons.size(); i++)
-        {
-            lessons[i] = _currentDay.lessons.get(i)._subject;
-            time[i] =  _currentDay.lessons.get(i)._startTime + "-" + _currentDay.lessons.get(i)._stopTime;
+            for (int i = 0; i < _currentDay.lessons.size(); i++) {
+                lessons[i] = _currentDay.lessons.get(i)._subject;
+                time[i] = _currentDay.lessons.get(i)._startTime + "-" + _currentDay.lessons.get(i)._stopTime;
+            }
+
+            // Показать расписание на день
+            DayTTAdapter adapter = new DayTTAdapter(container.getContext(), _currentDay.lessons);
+
+            setListAdapter(adapter);
         }
-
-        // Показать расписание на день
-        DayTTAdapter adapter = new DayTTAdapter(container.getContext(), _currentDay.lessons);
-
-        setListAdapter(adapter);
 
         return view;
     }

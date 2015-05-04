@@ -4,8 +4,6 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_edit">EditActivity</string>
 
-    <string name="read_file">Прочитать файл</string>
-    <string name="write_file">Записать файл</string>
-
-    <string name="edit_actionBar">Изменить расписание</string>
+    <string name="edit_day">Добавить день</string>
+    <string name="edit_lesson">Добавить урок</string>
 </resources>

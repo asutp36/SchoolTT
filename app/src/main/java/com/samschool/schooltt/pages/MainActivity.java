@@ -21,6 +21,8 @@ import java.io.FileOutputStream;
 
 public class MainActivity extends FragmentActivity {
 
+    final String FILENAME = "tt1.xml";
+
     // Само расписание
     TimeTable mainTT = null;
 
@@ -57,6 +59,7 @@ public class MainActivity extends FragmentActivity {
         });
     }
 
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_main, menu);
@@ -90,7 +93,7 @@ public class MainActivity extends FragmentActivity {
 //        // сериализовать расписание
 //        SaveTT2File(mainTT);
 
-        mainTT = RestoreTTFromFile("tt.xml");
+        mainTT = RestoreTTFromFile(FILENAME);
     }
 
     // Сохранение расписания в файл xml
@@ -101,7 +104,7 @@ public class MainActivity extends FragmentActivity {
 
         try
         {
-            FileOutputStream fs = openFileOutput("tt.xml", Context.MODE_PRIVATE);
+            FileOutputStream fs = openFileOutput(FILENAME, Context.MODE_PRIVATE);
             xs.toXML(timeTable, fs);
             fs.close();
         }

@@ -29,6 +29,7 @@ public class DayPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount(){
+
         return _timeTable.days.size();
     }
 
