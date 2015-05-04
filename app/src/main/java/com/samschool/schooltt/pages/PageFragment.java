@@ -11,16 +11,16 @@ import com.samschool.schooltt.pages.R;
 
 public class PageFragment extends ListFragment {
 
-    String testData[] = new String[]
-            {"Математика", "Русский", "Английский", "Come", "On", "Mozafaka", "БИЧЕЗ", "everybody",
-                    "COOL", "PROGRAMMER"};
+//    String testData[] = new String[]
+//            {"Математика", "Русский", "Английский", "Come", "On", "Mozafaka", "БИЧЕЗ", "everybody",
+//                    "COOL", "PROGRAMMER"};
 
     static final String ARGUMENT_PAGE_NUMBER = "arg_page_number";
 
     int pageNumber;
 
     // Отображаемый день
- //   TTDay _currentDay;
+    TTDay _currentDay;
 
     public static PageFragment newInstance(int page, TTDay day) {
         PageFragment pageFragment = new PageFragment();
@@ -42,9 +42,20 @@ public class PageFragment extends ListFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = null;
 
-        view = inflater.inflate(R.layout.monday_layout, null);
+        View view = inflater.inflate(R.layout.monday_layout, null);
+
+
+
+        TTDay tue = new TTDay("Втор-ник");
+        tue.lessons.add(new TTLesson("15:00", "16:00", "Литература",""));
+        tue.lessons.add(new TTLesson("16:00", "17:00", "Биология",""));
+        tue.lessons.add(new TTLesson("17:00", "18:00", "История",""));
+
+        _currentDay = tue;
+
+
+
 
         switch (pageNumber){
             case 0:
@@ -73,9 +84,16 @@ public class PageFragment extends ListFragment {
                 break;
         }
 
-        // Заполнить уроки на день
+        // Заполнить строки уроков на день
+        String lessons[] = new String[_currentDay.lessons.size()];
+
+        for(int i = 0; i < _currentDay.lessons.size(); i++)
+        {
+            lessons[i] = _currentDay.lessons.get(i)._startTime + "-" + _currentDay.lessons.get(i)._stopTime + "  " + _currentDay.lessons.get(i)._subject;
+        }
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_list_item_1, testData);
+                android.R.layout.simple_list_item_1, lessons);
 
         setListAdapter(adapter);
 

@@ -26,9 +26,9 @@ public class MainActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main);
-
         InitTimeTable();
+
+        setContentView(R.layout.activity_main);
 
         pager = (ViewPager) findViewById(R.id.pager);
         pagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager());
@@ -38,7 +38,7 @@ public class MainActivity extends FragmentActivity {
 
             @Override
             public void onPageSelected(int position) {
-                pager.getChildAt(position);
+//                pager.getChildAt(position);
             }
 
             @Override
@@ -64,9 +64,9 @@ public class MainActivity extends FragmentActivity {
             if(position < mainTT.days.size())
                 day = mainTT.days.get(position);
             
-            PageFragment view = (PageFragment)pager.getChildAt(position);
-            if( == null)
-                pager.se
+//            PageFragment view = (PageFragment)pager.getChildAt(position);
+//            if( == null)
+//                pager.se
 
             return PageFragment.newInstance(position, day);
         }
