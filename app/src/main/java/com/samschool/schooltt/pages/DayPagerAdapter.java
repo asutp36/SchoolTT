@@ -24,7 +24,7 @@ public class DayPagerAdapter extends FragmentPagerAdapter {
         if(position < _timeTable.days.size())
             day = _timeTable.days.get(position);
 
-        return PageFragment.newInstance(position, day);
+        return PageFragment.newInstance(position, _timeTable, day);
     }
 
     @Override

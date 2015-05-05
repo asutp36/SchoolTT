@@ -35,11 +35,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Medium Text"
+            android:text="Small Text"
             android:id="@+id/homework"
             android:layout_row="0"
             android:layout_column="2"
-            android:layout_rowSpan="2" />
+            android:gravity="left"
+            android:textColor="@android:color/black"
+            android:layout_rowSpan="2"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="5dp" />
 
     </GridLayout>
 </LinearLayout>

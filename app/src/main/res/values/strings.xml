@@ -6,7 +6,4 @@
 
     <string name="edit_day">Добавить день</string>
     <string name="edit_lesson">Добавить урок</string>
-    <string name="title_activity_edit_lesson">EditLessonActivity</string>
-
-    <string name="hello_world">Hello world!</string>
 </resources>

@@ -45,6 +45,13 @@ public class TimeTable implements Serializable {
         SaveTT2File(context);
     }
 
+    public void CreateHomework(Context context, TTLesson lesson, String homework)
+    {
+        lesson._homework = homework;
+
+        SaveTT2File(context);
+    }
+
     // Сохранение расписания в файл xml
     public void SaveTT2File(Context context)
     {

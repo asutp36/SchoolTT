@@ -29,6 +29,10 @@
             android:name=".EditLessonActivity"
             android:label="@string/app_name" >
         </activity>
+        <activity
+            android:name=".EditHomeworkActivity"
+            android:label="@string/app_name" >
+        </activity>
     </application>
 
 </manifest>
