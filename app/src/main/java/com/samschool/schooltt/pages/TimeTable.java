@@ -1,6 +1,7 @@
 package com.samschool.schooltt.pages;
 
 import android.content.Context;
+import android.util.SparseBooleanArray;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
@@ -12,6 +13,7 @@ import java.io.Serializable;
 import java.text.Collator;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 // Рассписание на неделю
@@ -45,9 +47,31 @@ public class TimeTable implements Serializable {
         SaveTT2File(context);
     }
 
+    // Записать домашнее задание
     public void CreateHomework(Context context, TTLesson lesson, String homework)
     {
         lesson._homework = homework;
+
+        SaveTT2File(context);
+    }
+
+    public void DeleteLesson(Context context, TTDay day, SparseBooleanArray sbArray)
+    {
+        LinkedList<TTLesson> list4del = new LinkedList<TTLesson>();
+
+        for (int i = 0; i < sbArray.size(); i++) {
+            int key = sbArray.keyAt(i);
+            if (sbArray.get(key))
+                list4del.add(day.lessons.get(key));
+        }
+
+        TTLesson lesson;
+        Iterator<TTLesson> itr = day.lessons.iterator();
+        while(itr.hasNext()) {
+            lesson = itr.next();
+            if(list4del.contains(lesson))
+                itr.remove();
+        }
 
         SaveTT2File(context);
     }
