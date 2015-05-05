@@ -6,4 +6,6 @@
 
     <string name="edit_day">Добавить день</string>
     <string name="edit_lesson">Добавить урок</string>
+
+    <string name="lesson_delete">Удалить</string>
 </resources>

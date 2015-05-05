@@ -89,6 +89,5 @@ public class PageFragment extends ListFragment {
         intent.putExtra("dayPosition", dayPosition);
         intent.putExtra("lessonPosition", position);
         startActivity(intent);
-
     }
 }
